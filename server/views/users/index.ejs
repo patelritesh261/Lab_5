@@ -1,0 +1,24 @@
+<% include ../partials/header.ejs %>
+<% include ../partials/navbar.ejs %>
+<main class="container">
+    <h1>Users</h1>
+
+    <a href="/users/add">Add a New Article</a>
+
+    <ul class="list-group">
+        <% for (var i = 0; i < users.length; i++) { %>
+            <li class="list-group-item">
+                <a href="/users/<%= users[i]._id %>" title="Edit Article">
+                    <%= users[i].username %>
+                </a>
+                <br />
+                <%= users[i].email %>
+                <br />
+                 <%= users[i].password %>
+                <br />
+                <%= users[i].created.toDateString() %>
+            </li>
+        <% } %>
+    </ul>
+</main>
+<% include ../partials/footer.ejs %>
